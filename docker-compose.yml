@@ -1,0 +1,36 @@
+mongo:
+  image: mongo
+  restart: always
+  ports:
+    - '27017:27017'
+
+api:
+  build: api
+  dockerfile: Dockerfile
+  ports:
+    - '4000:4000'
+  volumes:
+    - ./api:/usr/src/api
+  links:
+    - mongo
+  environment:
+    - HOST=${API_HOST}
+    - PORT=${API_PORT}
+    - MONGO_HOST=${MONGO_HOST}
+    - MONGO_PORT=${MONGO_PORT}
+    - MONGO_DB=${MONGO_DB}
+    - AUTH_SECRET=${AUTH_SECRET}
+    - AUTH_EXPIRY=${AUTH_EXPIRY}
+
+client:
+  build: client
+  dockerfile: Dockerfile
+  ports:
+    - '3000:3000'
+  volumes:
+    - ./client:/usr/src/client
+  links:
+    - api
+  environment:
+    - REACT_APP_API_HOST=${API_HOST}
+    - REACT_APP_API_PORT=${API_PORT}

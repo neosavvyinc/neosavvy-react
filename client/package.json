@@ -1,0 +1,30 @@
+{
+  "name": "neosavvy-client",
+  "version": "0.1.0",
+  "author": "Pablo Alonso <pablo@neosavvy.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "1.0.7",
+    "redux-devtools": "^3.3.1"
+  },
+  "dependencies": {
+    "apollo-client": "^1.4.0",
+    "graphql-tag": "^2.2.1",
+    "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
+    "react": "^15.4.1",
+    "react-apollo": "^1.4.2",
+    "react-dom": "^15.4.1",
+    "react-redux": "^5.0.5",
+    "react-router": "^3.0.5",
+    "redux": "^3.6.0",
+    "redux-form": "^6.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
